@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ParticlesBackground from "./ParticlesBackground";
+import { toast } from "sonner";
 
 const Hero = () => {
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleDownloadCV = () => {
+    // In a real application, this would download an actual PDF file
+    toast.success("CV download started!");
+    // Example: window.open('/path-to-your-cv.pdf', '_blank');
   };
 
   return (
@@ -55,14 +62,14 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold animate-glow"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold animate-glow w-full sm:w-auto"
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
             >
               View My Work
@@ -70,7 +77,16 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
+              onClick={handleDownloadCV}
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Download CV
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
               Get In Touch
