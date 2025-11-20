@@ -7,7 +7,7 @@ const skills = [
   {
     icon: Code2,
     title: "Development",
-    description: "Building robust and scalable applications with modern technologies",
+    description: "Building robust and scalable web applications with modern technologies",
   },
   {
     icon: Palette,

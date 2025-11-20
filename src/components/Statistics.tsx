@@ -6,27 +6,27 @@ import { Code2, Users, Award, Coffee } from "lucide-react";
 const stats = [
   {
     icon: Code2,
-    value: 50,
+    value: 20,
     suffix: "+",
     label: "Projects Completed",
   },
   {
     icon: Users,
-    value: 30,
+    value: 10,
     suffix: "+",
     label: "Happy Clients",
   },
   {
     icon: Award,
-    value: 5,
+    value: 4,
     suffix: "+",
     label: "Years Experience",
   },
   {
-    icon: Coffee,
+    icon: Code2,
     value: 1000,
     suffix: "+",
-    label: "Cups of Coffee",
+    label: "Errors Endured",
   },
 ];
 

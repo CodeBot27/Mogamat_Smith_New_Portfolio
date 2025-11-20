@@ -62,8 +62,8 @@ const Navbar = () => {
             transition={{ delay: 0.2 }}
             className="text-2xl font-heading font-bold"
           >
-            <span className="text-foreground">Port</span>
-            <span className="text-primary">folio</span>
+            <span className="text-foreground">M</span>
+            <span className="text-primary">Smith</span>
           </motion.div>
 
           {/* Desktop Menu */}

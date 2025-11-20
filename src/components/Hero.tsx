@@ -16,9 +16,12 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       <ParticlesBackground />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -33,13 +36,13 @@ const Hero = () => {
           >
             Hi, I'm{" "}
             <span className="text-primary relative inline-block">
-              Your Name
-              <motion.span
-                className="absolute -bottom-2 left-0 w-full h-1 bg-primary"
+              Mogamat Smith
+              {/* <motion.span
+                className="absolute -bottom-4 left-0 w-full h-1 bg-primary"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-              />
+                transition={{ delay: 0.8, duration: 1 }}
+              /> */}
             </span>
           </motion.h1>
 
@@ -69,8 +72,13 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold animate-glow w-full sm:w-auto"
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               View My Work
             </Button>
@@ -87,7 +95,11 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Get In Touch
             </Button>
@@ -98,15 +110,20 @@ const Hero = () => {
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
+          transition={{
+            delay: 1.2,
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 1.5,
+          }}
         >
-          <button
+          {/* <button
             onClick={scrollToAbout}
             className="text-primary hover:text-primary/80 transition-colors"
             aria-label="Scroll to about section"
           >
             <ArrowDown size={32} />
-          </button>
+          </button> */}
         </motion.div>
       </div>
     </section>

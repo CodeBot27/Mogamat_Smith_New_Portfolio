@@ -21,7 +21,7 @@ const services = [
     icon: Smartphone,
     title: "Mobile Development",
     description: "Developing cross-platform mobile applications that work seamlessly on iOS and Android devices.",
-    features: ["React Native", "Progressive Web Apps", "Responsive Design", "App Store Deployment"],
+    features: ["Flutter", "Progressive Web Apps", "Responsive Design", "App Store Deployment"],
   },
   {
     icon: Database,
@@ -65,13 +65,13 @@ const Services = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 h-full group">
-                <CardContent className="p-6 md:p-8">
+                <CardContent className="p-6 md:p-8 justify-center items-center text-center">
                   <div className="mb-4 md:mb-6 inline-flex p-3 md:p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     <service.icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-heading font-semibold mb-3">{service.title}</h3>
                   <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">{service.description}</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 flex flex-col items-center">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center text-sm md:text-base">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
