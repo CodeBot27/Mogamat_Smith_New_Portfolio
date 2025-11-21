@@ -13,15 +13,17 @@ import ge from "@/assets/ge.png";
 const projects = [
   {
     title: "HR Management System",
-    description: "A comprehensive HR management system for employee records and payroll",
+    description:
+      "A comprehensive HR management system for employee records and payroll",
     image: mts,
-    tags: ["PHP","MySQL", "Css"],
+    tags: ["PHP", "MySQL", "Css"],
     github: "#",
     live: "https://mt-solutions.wuaze.com",
   },
   {
     title: "SkyLens Weather App",
-    description: "A sleek weather application with real-time updates and forecasts",
+    description:
+      "A sleek weather application with real-time updates and forecasts",
     image: skylens,
     tags: ["TypeScript", "React", "Tailwind Css"],
     github: "#",
@@ -37,7 +39,8 @@ const projects = [
   },
   {
     title: "Lyric Snatcher",
-    description: "A web app that fetches and displays song lyrics with API integration",
+    description:
+      "A web app that fetches and displays song lyrics with API integration",
     image: lyrics,
     tags: ["React", "Javascript", "API"],
     github: "#",
@@ -45,7 +48,8 @@ const projects = [
   },
   {
     title: "Brew Craft E-Commerce Platform",
-    description: "An e-commerce platform for a craft brewery to showcase and sell their products",
+    description:
+      "An e-commerce platform for a craft brewery to showcase and sell their products",
     image: brew,
     tags: ["PHP", "MySQL", "Css"],
     github: "#",
@@ -53,7 +57,8 @@ const projects = [
   },
   {
     title: "To-Do List App",
-    description: "A simple and intuitive to-do list application to manage daily tasks",
+    description:
+      "A simple and intuitive to-do list application to manage daily tasks",
     image: todo,
     tags: ["React", "TypeScript", "Tailwind Css"],
     github: "#",
@@ -82,7 +87,8 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8" />
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Here are some of my recent projects that showcase my skills and experience
+            Here are some of my recent projects that showcase my skills and
+            experience
           </p>
         </motion.div>
 
@@ -102,14 +108,17 @@ const Projects = () => {
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-
                     <Button
                       size="sm"
                       variant="outline"
                       className="border-white text-white hover:bg-white hover:text-black"
                       asChild
                     >
-                      <a href={project.image} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.image}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Image className="w-4 h-4 mr-2" />
                         View Image
                       </a>
@@ -120,7 +129,11 @@ const Projects = () => {
                       className="bg-primary hover:bg-primary/90"
                       asChild
                     >
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live
                       </a>
@@ -128,8 +141,12 @@ const Projects = () => {
                   </div>
                 </div>
                 <CardContent className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-heading font-semibold mb-3">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4 flex-1">{project.description}</p>
+                  <h3 className="text-xl font-heading font-semibold mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 flex-1">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
