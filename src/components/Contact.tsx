@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Github, Linkedin } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -44,6 +44,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
@@ -53,11 +54,11 @@ const Contact = () => {
       title: "Message Sent!",
       description: "Thank you for your message. I'll get back to you soon.",
     });
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact" className="pt-20 md:pt-32 pb-12 md:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -71,11 +72,12 @@ const Contact = () => {
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8" />
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Have a project in mind? Let's work together to create something amazing
+            Have a project in mind? Let's work together to create something
+            amazing
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -83,7 +85,9 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-heading font-semibold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-heading font-semibold mb-6">
+                Contact Information
+              </h3>
               <div className="space-y-4">
                 {contactInfo.map((item) => (
                   <a
@@ -95,7 +99,9 @@ const Contact = () => {
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">{item.label}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {item.label}
+                      </p>
                       <p className="font-medium">{item.value}</p>
                     </div>
                   </a>
@@ -109,13 +115,18 @@ const Contact = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
+            <h3 className="text-2xl font-heading font-semibold mb-6">
+              Send a Message
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Input
                   type="text"
                   placeholder="Your Name"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   required
                   className="bg-card border-border focus:border-primary"
                 />
@@ -125,17 +136,31 @@ const Contact = () => {
                   type="email"
                   placeholder="Your Email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   required
                   className="bg-card border-border focus:border-primary"
                 />
               </div>
+              {/* <div>
+                <Input
+                  type="text"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  required
+                  className="bg-card border-border focus:border-primary"
+                />
+              </div> */}
               <div>
                 <Textarea
                   placeholder="Your Message"
                   rows={6}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   required
                   className="bg-card border-border focus:border-primary resize-none"
                 />
@@ -156,9 +181,33 @@ const Contact = () => {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="mt-20 pt-8 border-t border-border text-center text-muted-foreground"
+        className="mt-16 pt-8 border-t border-border text-center text-muted-foreground"
       >
-        <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
+        <div className="flex items-center justify-center gap-6 mt-3 mb-3">
+          <a
+            href="#"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Github className="w-5 h-5" />
+          </a>
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+        </div>
+
+        <p>
+          &copy; {new Date().getFullYear()} Mogamat Smith Portfolio. All rights
+          reserved.
+        </p>
       </motion.footer>
     </section>
   );
