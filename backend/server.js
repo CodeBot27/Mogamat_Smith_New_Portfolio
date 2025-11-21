@@ -1,49 +1,44 @@
 import express from "express";
-import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
+import sgMail from "@sendgrid/mail";
 import { contactEmailTemplate, autoReplyTemplate } from "./emailTemplate.js";
 
-
 dotenv.config();
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Email endpoint
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
-    });
-
-    // 1️⃣ Email to YOU
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
+    // 1Admin Email
+    await sgMail.send({
+      to: process.env.EMAIL_FROM,
+      from: process.env.EMAIL_FROM,
       subject: `📬 New message from ${name}`,
       html: contactEmailTemplate({ name, email, message }),
     });
 
-    // 2️⃣ Auto-reply to USER
-    await transporter.sendMail({
-      from: `"Mogamat Smith" <${process.env.EMAIL_USER}>`,
+    //Auto-Reply Email to user
+    await sgMail.send({
       to: email,
-      subject: "Thank you for contacting me!",
+      from: process.env.EMAIL_FROM,
+      subject: "Thank You For Your Message",
       html: autoReplyTemplate({ name }),
     });
 
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Email error:", error);
+    console.error("SendGrid error:", error);
     res.status(500).json({ success: false, error });
   }
 });
 
-app.listen(4000, () =>
-  console.log("Backend started on http://localhost:4000")
+app.listen(process.env.PORT || 4000, () =>
+  console.log("Backend started on port", process.env.PORT || 4000)
 );
