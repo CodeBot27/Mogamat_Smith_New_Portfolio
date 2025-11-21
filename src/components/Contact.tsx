@@ -41,20 +41,66 @@ const Contact = () => {
     threshold: 0.1,
   });
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    honey: "", // honeypot (bots fill this, humans don't)
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    // Honeypot check → if filled, reject silently
+    if (formData.honey.trim() !== "") return;
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mankwalo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you — I'll respond as soon as possible.",
+        });
+
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+          honey: "",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Network Error",
+        description: "Unable to send message. Check your connection.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -78,6 +124,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -110,6 +157,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
+          {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -118,59 +166,59 @@ const Contact = () => {
             <h3 className="text-2xl font-heading font-semibold mb-6">
               Send a Message
             </h3>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <Input
-                  type="text"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  required
-                  className="bg-card border-border focus:border-primary"
-                />
-              </div>
-              <div>
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                  className="bg-card border-border focus:border-primary"
-                />
-              </div>
-              {/* <div>
-                <Input
-                  type="text"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  required
-                  className="bg-card border-border focus:border-primary"
-                />
-              </div> */}
-              <div>
-                <Textarea
-                  placeholder="Your Message"
-                  rows={6}
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  required
-                  className="bg-card border-border focus:border-primary resize-none"
-                />
-              </div>
+              {/* Honeypot field (hidden) */}
+              <input
+                type="text"
+                name="honey"
+                value={formData.honey}
+                onChange={(e) =>
+                  setFormData({ ...formData, honey: e.target.value })
+                }
+                className="hidden"
+              />
+
+              <Input
+                type="text"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                required
+                className="bg-card border-border focus:border-primary"
+              />
+
+              <Input
+                type="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                required
+                className="bg-card border-border focus:border-primary"
+              />
+
+              <Textarea
+                placeholder="Your Message"
+                rows={6}
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+                required
+                className="bg-card border-border focus:border-primary resize-none"
+              />
+
               <Button
                 type="submit"
                 size="lg"
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                disabled={loading}
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </motion.div>

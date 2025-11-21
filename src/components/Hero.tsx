@@ -70,7 +70,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <Button
+            {/* <Button
               size="lg"
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
@@ -81,7 +81,7 @@ const Hero = () => {
               }
             >
               View My Work
-            </Button>
+            </Button> */}
             <Button
               size="lg"
               variant="outline"
