@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,20 +12,26 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
+    value: "suhairsmith17@gmail.com",
+    href: "mailto:suhairsmith17@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+27 74 786 2736",
+    href: "tel:+27747862736",
+  },
+  {
+    icon: SiWhatsapp,
+    label: "WhatsApp",
+    value: "+27 74 786 2736",
+    href: "https://wa.me/27747862736",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
-    href: "#",
+    value: "Cape Town, South Africa",
+    href: "https://www.google.com/maps/place/Cape+Town,+South+Africa",
   },
 ];
 

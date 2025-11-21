@@ -2,27 +2,27 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const testimonials = [
   {
     name: "Ridwaan Petersen",
     role: "Travel Agency Owner, RP Corp",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+    avatar: "",
     content: "Outstanding work! Delivered a stunning website that perfectly captures our brand. Highly recommend for any web development needs.",
     rating: 5,
   },
   {
     name: "Salie Smith",
     role: "Ceiling Contractor, Smith Ceilings",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+    avatar: "",
     content: "Exceptional developer with great attention to detail. The application runs flawlessly and the code quality is top-notch.",
     rating: 5,
   },
   {
     name: "Geraldine Erasmus",
     role: "Nail Salon Owner, Beauty By Geraldine Erasmus",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+    avatar: "",
     content: "A pleasure to work with! Great communication, creative solutions, and delivered a beautiful, high-performing website.",
     rating: 5,
   }
@@ -79,17 +79,20 @@ const Testimonials = () => {
             >
               <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 h-full">
                 <CardContent className="p-6 md:p-8">
-                  <Quote className="w-8 h-8 md:w-10 md:h-10 text-primary/20 mb-4" />
-                  <p className="text-sm md:text-base text-muted-foreground mb-6 italic">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="mb-4">
-                    <StarRating rating={testimonial.rating} />
+                  <div className="text-center">
+                    <Quote className="w-8 h-8 md:w-10 md:h-10 text-primary/20 mb-4 mx-auto" />
+                    <p className="text-sm md:text-base text-muted-foreground mb-6 italic">
+                      "{testimonial.content}"
+                    </p>
+                    <div className="mb-4 flex justify-center">
+                      <StarRating rating={testimonial.rating} />
+                    </div>
                   </div>
                   <div className="flex items-center gap-3 md:gap-4">
                     <Avatar className="w-10 h-10 md:w-12 md:h-12">
-                      <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                      <AvatarFallback>{testimonial.name.split(" ").map((n) => n[0]).join("")}</AvatarFallback>
+                      <AvatarFallback className="bg-primary/10 text-primary font-semibold text-sm md:text-base dark:bg-primary/700 dark:text-primary-50">
+                        {testimonial.name.split(" ").map((n) => n[0]).join("")}
+                      </AvatarFallback>
                     </Avatar>
                     <div>
                       <p className="font-semibold text-sm md:text-base">{testimonial.name}</p>
