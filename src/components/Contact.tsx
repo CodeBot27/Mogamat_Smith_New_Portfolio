@@ -60,15 +60,18 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:4000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
+      const response = await fetch(
+        "https://mogamat-smith-new-portfolio.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
+      );
 
       if (response.ok) {
         toast({
