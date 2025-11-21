@@ -46,6 +46,9 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 0% 90%;
     --sidebar-ring: 0 84% 60%;
+
+    --scrollbar: 348 83% 47%;
+    --scrollbar-hover: 348 83% 57%;
   }
 
   .dark {
@@ -84,7 +87,36 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 0 84% 60%;
+
+    --scrollbar: 348 83% 47%;
+    --scrollbar-hover: 348 83% 57%;
   }
+}
+
+/* Native scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--scrollbar));
+  border-radius: 6px;
+  border: 2px solid hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--scrollbar-hover));
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--scrollbar)) hsl(var(--background));
 }
 
 @layer base {
