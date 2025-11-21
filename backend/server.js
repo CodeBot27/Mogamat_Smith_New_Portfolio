@@ -6,6 +6,14 @@ import { contactEmailTemplate, autoReplyTemplate } from "./emailTemplate.js";
 
 dotenv.config();
 
+if (!process.env.SENDGRID_API_KEY) {
+  console.error("❌ Missing SENDGRID_API_KEY in environment!");
+}
+
+if (!process.env.EMAIL_FROM) {
+  console.error("❌ Missing EMAIL_FROM in environment!");
+}
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const app = express();
@@ -15,8 +23,12 @@ app.use(express.json());
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
+  if (!name || !email || !message) {
+    return res.status(400).json({ success: false, error: "Missing fields" });
+  }
+
   try {
-    // 1Admin Email
+    // Send email to YOU (admin)
     await sgMail.send({
       to: process.env.EMAIL_FROM,
       from: process.env.EMAIL_FROM,
@@ -24,21 +36,27 @@ app.post("/api/contact", async (req, res) => {
       html: contactEmailTemplate({ name, email, message }),
     });
 
-    //Auto-Reply Email to user
+    // Auto-reply to USER
     await sgMail.send({
       to: email,
       from: process.env.EMAIL_FROM,
-      subject: "Thank You For Your Message",
+      subject: "📨 Thank You For Your Message",
       html: autoReplyTemplate({ name }),
     });
 
+    console.log("Emails sent successfully ✔️");
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error("SendGrid error:", error);
-    res.status(500).json({ success: false, error });
+    console.error("❌ SendGrid error:", error.response?.body || error);
+    res.status(500).json({
+      success: false,
+      error: error.response?.body || "SendGrid failed",
+    });
   }
 });
 
-app.listen(process.env.PORT || 4000, () =>
-  console.log("Backend started on port", process.env.PORT || 4000)
-);
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Backend running on port ${PORT}`);
+});
