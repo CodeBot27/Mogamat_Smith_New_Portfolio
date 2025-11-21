@@ -10,9 +10,14 @@ const Hero = () => {
   };
 
   const handleDownloadCV = () => {
-    // In a real application, this would download an actual PDF file
-    toast.success("CV download started!");
-    // Example: window.open('/path-to-your-cv.pdf', '_blank');
+    const cvUrl = "/Mogamat_Smith_CV.pdf";
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download = "Mogamat_Smith_CV.pdf";
+    link.target = "_blank";
+    link.click();
+
+    toast.success("Downloading CV...");
   };
 
   return (
@@ -56,7 +61,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.p
-            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
+            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
@@ -85,13 +90,13 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-40 sm:w-auto"
               onClick={handleDownloadCV}
             >
-              <Download className="w-4 h-4 mr-2" />
+              <Download className="w-4 h-4 mr-1" />
               Download CV
             </Button>
-            <Button
+            {/* <Button
               size="lg"
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
@@ -102,7 +107,7 @@ const Hero = () => {
               }
             >
               Get In Touch
-            </Button>
+            </Button> */}
           </motion.div>
         </motion.div>
 

@@ -233,7 +233,7 @@ const Contact = () => {
       >
         <div className="flex items-center justify-center gap-6 mt-3 mb-3">
           <a
-            href="#"
+            href="https://github.com/kxngzero329"
             aria-label="GitHub"
             target="_blank"
             rel="noopener noreferrer"
@@ -242,7 +242,7 @@ const Contact = () => {
             <Github className="w-5 h-5" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/suhair-smith-kxngzero329/"
             aria-label="LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
