@@ -8,7 +8,7 @@ import brew from "@/assets/brew.png";
 import todo from "@/assets/todo.png";
 import lyrics from "@/assets/lyrics.png";
 import skylens from "@/assets/skylens.png";
-import ge from "@/assets/ge.png";
+import client1 from "@/assets/client1.png";
 
 const projects = [
   {
@@ -32,7 +32,7 @@ const projects = [
   {
     title: "Beauty By Geraldine Erasmus",
     description: "Online Nail Salon Booking System",
-    image: ge,
+    image: client1,
     tags: ["React", "Css", "Formspree"],
     github: "#",
     live: "https://beauty-by-geraldine.netlify.app/",
