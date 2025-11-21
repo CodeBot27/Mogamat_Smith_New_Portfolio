@@ -1,57 +1,63 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Image } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import mts from "@/assets/mts.png";
+import brew from "@/assets/brew.png";
+import todo from "@/assets/todo.png";
+import lyrics from "@/assets/lyrics.png";
+import skylens from "@/assets/skylens.png";
+import ge from "@/assets/ge.png";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform built with React, Node.js, and PostgreSQL",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-    tags: ["React", "Node.js", "PostgreSQL"],
+    title: "HR Management System",
+    description: "A comprehensive HR management system for employee records and payroll",
+    image: mts,
+    tags: ["PHP","MySQL", "Css"],
     github: "#",
-    live: "#",
+    live: "https://mt-solutions.wuaze.com",
   },
   {
-    title: "Task Management App",
-    description: "Collaborative task management application with real-time updates",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-    tags: ["TypeScript", "React", "Firebase"],
+    title: "SkyLens Weather App",
+    description: "A sleek weather application with real-time updates and forecasts",
+    image: skylens,
+    tags: ["TypeScript", "React", "Tailwind Css"],
     github: "#",
-    live: "#",
+    live: "https://skylensms.netlify.app/",
   },
   {
-    title: "Portfolio Website",
-    description: "Modern portfolio website with animations and responsive design",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
-    tags: ["React", "Tailwind", "Framer Motion"],
+    title: "Beauty By Geraldine Erasmus",
+    description: "Online Nail Salon Booking System",
+    image: ge,
+    tags: ["React", "Css", "Formspree"],
     github: "#",
-    live: "#",
+    live: "https://beauty-by-geraldine.netlify.app/",
   },
   {
-    title: "Weather Dashboard",
-    description: "Real-time weather dashboard with location-based forecasts",
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
-    tags: ["React", "API", "Charts"],
+    title: "Lyric Snatcher",
+    description: "A web app that fetches and displays song lyrics with API integration",
+    image: lyrics,
+    tags: ["React", "Javascript", "API"],
     github: "#",
-    live: "#",
+    live: "https://lyric-snatcher-by-msmith.netlify.app/",
   },
   {
-    title: "Social Media App",
-    description: "Social networking platform with messaging and content sharing",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=600&fit=crop",
-    tags: ["React", "Express", "MongoDB"],
+    title: "Brew Craft E-Commerce Platform",
+    description: "An e-commerce platform for a craft brewery to showcase and sell their products",
+    image: brew,
+    tags: ["PHP", "MySQL", "Css"],
     github: "#",
-    live: "#",
+    live: "https://brewcraft.wuaze.com/",
   },
   {
-    title: "Analytics Dashboard",
-    description: "Business analytics dashboard with data visualization",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    tags: ["React", "D3.js", "Node.js"],
+    title: "To-Do List App",
+    description: "A simple and intuitive to-do list application to manage daily tasks",
+    image: todo,
+    tags: ["React", "TypeScript", "Tailwind Css"],
     github: "#",
-    live: "#",
+    live: "https://msmith-todolist.netlify.app/",
   },
 ];
 
@@ -96,17 +102,19 @@ const Projects = () => {
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+
                     <Button
                       size="sm"
                       variant="outline"
                       className="border-white text-white hover:bg-white hover:text-black"
                       asChild
                     >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
+                      <a href={project.image} target="_blank" rel="noopener noreferrer">
+                        <Image className="w-4 h-4 mr-2" />
+                        View Image
                       </a>
                     </Button>
+
                     <Button
                       size="sm"
                       className="bg-primary hover:bg-primary/90"

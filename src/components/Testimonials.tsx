@@ -6,47 +6,26 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, TechStart Inc",
+    name: "Ridwaan Petersen",
+    role: "Travel Agency Owner, RP Corp",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-    content: "Outstanding work! The portfolio website exceeded all expectations. Professional, responsive, and delivered on time. Highly recommended!",
+    content: "Outstanding work! Delivered a stunning website that perfectly captures our brand. Highly recommend for any web development needs.",
     rating: 5,
   },
   {
-    name: "Michael Chen",
-    role: "Product Manager, Digital Co",
+    name: "Salie Smith",
+    role: "Ceiling Contractor, Smith Ceilings",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
     content: "Exceptional developer with great attention to detail. The application runs flawlessly and the code quality is top-notch.",
     rating: 5,
   },
   {
-    name: "Emily Rodriguez",
-    role: "Marketing Director, GrowthLab",
+    name: "Geraldine Erasmus",
+    role: "Nail Salon Owner, Beauty By Geraldine Erasmus",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
     content: "A pleasure to work with! Great communication, creative solutions, and delivered a beautiful, high-performing website.",
     rating: 5,
-  },
-  {
-    name: "David Kim",
-    role: "Founder, StartupHub",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-    content: "Transformed our vision into reality. The web app is fast, intuitive, and our users love it. Couldn't ask for better results!",
-    rating: 5,
-  },
-  {
-    name: "Lisa Anderson",
-    role: "CTO, InnovateTech",
-    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop",
-    content: "Incredible technical skills combined with excellent project management. Delivered a complex application on schedule and budget.",
-    rating: 5,
-  },
-  {
-    name: "James Wilson",
-    role: "Designer, CreativeStudio",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-    content: "Best developer I've worked with. Pixel-perfect implementation and great at collaborating on design decisions.",
-    rating: 5,
-  },
+  }
 ];
 
 const StarRating = ({ rating }: { rating: number }) => {

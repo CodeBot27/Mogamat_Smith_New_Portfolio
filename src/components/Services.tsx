@@ -27,7 +27,7 @@ const services = [
     icon: Database,
     title: "Backend Development",
     description: "Architecting robust backend systems with secure APIs, databases, and cloud infrastructure.",
-    features: ["Node.js", "PostgreSQL", "Cloud Services", "API Development"],
+    features: ["Node.js", "MongoDB", "Firebase", "API Development"],
   },
 ];
 
