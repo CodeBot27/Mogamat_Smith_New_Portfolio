@@ -39,62 +39,22 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // const scrollToSection = (href: string) => {
-  //   const element = document.querySelector(href);
-  //   if (element) {
-  //     element.scrollIntoView({ behavior: "smooth" });
-  //     setIsOpen(false);
-  //   }
-  // };
-
-//   const scrollToSection = (href: string) => {
-//   const element = document.querySelector(href);
-//   if (element) {
-//     element.scrollIntoView({ behavior: "smooth" });
-
-//     // Delay closing menu so scroll isn't cancelled
-//     setTimeout(() => {
-//       setIsOpen(false);
-//     }, 300);
-//   }
-// };
-
-// const scrollToSection = (href: string) => {
-//   const element = document.querySelector(href);
-//   if (!element) return;
-
-//   // Scroll smoothly to the section
-//   element.scrollIntoView({ behavior: "smooth" });
-
-//   // Wait for the scroll animation to *start*, then close the menu
-//   setTimeout(() => {
-//     setIsOpen(false);
-//   }, 500); // you can tweak this to 400–600ms if needed
-
-//   // Add a small offset so section isn't hidden under navbar
-//   setTimeout(() => {
-//     const NAV_OFFSET = 70; // adjust if your navbar is taller/shorter
-//     window.scrollBy({ top: -NAV_OFFSET, behavior: "smooth" });
-//   }, 550);
-// };
-
-const scrollToSection = (href: string) => {
-  const element = document.querySelector(href);
-  if (!element) return;
-
-  element.scrollIntoView({ behavior: "smooth" });
-
-  // Wait a moment before closing menu
-  setTimeout(() => setIsOpen(false), 300);
-};
-
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 overflow-x-hidden ${
-        scrolled ? "bg-background/95 backdrop-blur-lg shadow-lg border-b border-border" : "bg-transparent"
+        scrolled
+          ? "bg-background/95 backdrop-blur-lg shadow-lg border-b border-border"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
