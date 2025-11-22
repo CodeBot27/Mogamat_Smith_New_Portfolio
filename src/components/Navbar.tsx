@@ -39,13 +39,26 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // const scrollToSection = (href: string) => {
+  //   const element = document.querySelector(href);
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: "smooth" });
+  //     setIsOpen(false);
+  //   }
+  // };
+
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+
+    // Delay closing menu so scroll isn't cancelled
+    setTimeout(() => {
       setIsOpen(false);
-    }
-  };
+    }, 300);
+  }
+};
+
 
   return (
     <motion.nav
