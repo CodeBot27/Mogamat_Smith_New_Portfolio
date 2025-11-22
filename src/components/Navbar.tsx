@@ -59,23 +59,33 @@ const Navbar = () => {
 //   }
 // };
 
+// const scrollToSection = (href: string) => {
+//   const element = document.querySelector(href);
+//   if (!element) return;
+
+//   // Scroll smoothly to the section
+//   element.scrollIntoView({ behavior: "smooth" });
+
+//   // Wait for the scroll animation to *start*, then close the menu
+//   setTimeout(() => {
+//     setIsOpen(false);
+//   }, 500); // you can tweak this to 400–600ms if needed
+
+//   // Add a small offset so section isn't hidden under navbar
+//   setTimeout(() => {
+//     const NAV_OFFSET = 70; // adjust if your navbar is taller/shorter
+//     window.scrollBy({ top: -NAV_OFFSET, behavior: "smooth" });
+//   }, 550);
+// };
+
 const scrollToSection = (href: string) => {
   const element = document.querySelector(href);
   if (!element) return;
 
-  // Scroll smoothly to the section
   element.scrollIntoView({ behavior: "smooth" });
 
-  // Wait for the scroll animation to *start*, then close the menu
-  setTimeout(() => {
-    setIsOpen(false);
-  }, 500); // you can tweak this to 400–600ms if needed
-
-  // Add a small offset so section isn't hidden under navbar
-  setTimeout(() => {
-    const NAV_OFFSET = 70; // adjust if your navbar is taller/shorter
-    window.scrollBy({ top: -NAV_OFFSET, behavior: "smooth" });
-  }, 550);
+  // Wait a moment before closing menu
+  setTimeout(() => setIsOpen(false), 300);
 };
 
 
