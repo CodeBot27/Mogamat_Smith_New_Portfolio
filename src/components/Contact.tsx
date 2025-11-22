@@ -105,8 +105,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="pt-20 md:pt-32 pb-12 md:pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="pt-20 md:pt-32 pb-12 md:pb-16 w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
