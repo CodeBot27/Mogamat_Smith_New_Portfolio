@@ -65,8 +65,8 @@ const Statistics = () => {
   });
 
   return (
-    <section className="py-12 md:py-20 bg-primary/5 border-y border-primary/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-20 bg-primary/5 border-y border-primary/10 w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div ref={ref} className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
