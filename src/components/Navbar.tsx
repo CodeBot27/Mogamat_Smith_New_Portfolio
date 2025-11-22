@@ -41,8 +41,16 @@ const Navbar = () => {
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (!element) return;
+
+    const isMobile = window.innerWidth < 768;
+
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (isMobile) {
+      // Delay closing on mobile so smooth scroll isn't interrupted
+      setTimeout(() => setIsOpen(false), 500);
+    } else {
       setIsOpen(false);
     }
   };
