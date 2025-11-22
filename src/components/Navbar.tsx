@@ -45,12 +45,15 @@ const Navbar = () => {
 
     const isMobile = window.innerWidth < 768;
 
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-
     if (isMobile) {
-      // Delay closing on mobile so smooth scroll isn't interrupted
-      setTimeout(() => setIsOpen(false), 500);
+      // Close menu first on mobile
+      setIsOpen(false);
+      // Then scroll after menu animation completes
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
     } else {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
       setIsOpen(false);
     }
   };
