@@ -16,7 +16,7 @@ const projects = [
     description:
       "A comprehensive HR management system for employee records and payroll",
     image: mts,
-    tags: ["React", "MySQL", "Tailwind Css"],
+    tags: ["React", "MySQL", "Tailwind Css", "Node.js"],
     github: "#",
     live: "https://moderntechs.netlify.app/",
   },
@@ -25,7 +25,7 @@ const projects = [
     description:
       "A sleek weather application with real-time updates and forecasts",
     image: skylens,
-    tags: ["TypeScript", "React", "Tailwind Css"],
+    tags: ["TypeScript", "React", "Tailwind Css", "OpenWeather API"],
     github: "#",
     live: "https://skylensms.netlify.app/",
   },
