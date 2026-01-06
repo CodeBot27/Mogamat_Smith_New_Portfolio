@@ -114,14 +114,14 @@ const Projects = () => {
                       className="border-primary/50 bg-primary/10 text-primary-foreground hover:bg-primary hover:text-primary-foreground"
                       asChild
                     >
-                      <a
+                      {/* <a
                         href={project.image}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <Image className="w-4 h-4 mr-2" />
                         View Image
-                      </a>
+                      </a> */}
                     </Button>
 
                     <Button
