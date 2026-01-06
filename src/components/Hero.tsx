@@ -90,7 +90,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-40 sm:w-auto"
+              className="border-primary text-primary hover:bg-primary hover:text-white dark:hover:text-white w-40 sm:w-auto bg-background/80 backdrop-blur-sm"
               onClick={handleDownloadCV}
             >
               <Download className="w-4 h-4 mr-1" />
