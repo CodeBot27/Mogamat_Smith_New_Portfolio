@@ -111,7 +111,7 @@ const Projects = () => {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="border-white text-white hover:bg-white hover:text-black"
+                      className="border-primary/50 bg-primary/10 text-primary-foreground hover:bg-primary hover:text-primary-foreground"
                       asChild
                     >
                       <a
