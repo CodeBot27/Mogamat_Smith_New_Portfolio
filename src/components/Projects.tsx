@@ -3,10 +3,10 @@ import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github, Image } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import mts from "@/assets/mts.png";
+import mts from "@/assets/mtsnew.png";
 import brew from "@/assets/brew.png";
 import todo from "@/assets/todo.png";
-import lyrics from "@/assets/lyrics.png";
+import astrielle from "@/assets/astrielle.png";
 import skylens from "@/assets/skylens.png";
 import client1 from "@/assets/client1.png";
 
@@ -16,9 +16,9 @@ const projects = [
     description:
       "A comprehensive HR management system for employee records and payroll",
     image: mts,
-    tags: ["PHP", "MySQL", "Css"],
+    tags: ["React", "MySQL", "Tailwind Css"],
     github: "#",
-    live: "https://mt-solutions.wuaze.com",
+    live: "https://moderntechs.netlify.app/",
   },
   {
     title: "SkyLens Weather App",
@@ -38,13 +38,13 @@ const projects = [
     live: "https://beauty-by-geraldine.netlify.app/",
   },
   {
-    title: "Lyric Snatcher",
+    title: "Astrielle E-Commerce Clothing Store",
     description:
-      "A web app that fetches and displays song lyrics with API integration",
-    image: lyrics,
-    tags: ["React", "Javascript", "API"],
+      "An e-commerce clothing store for a fashion brand to showcase and sell their products",
+    image: astrielle,
+    tags: ["React", "Tailwind Css", "Supabase"],
     github: "#",
-    live: "https://lyric-snatcher-by-msmith.netlify.app/",
+    live: "https://astrielle.netlify.app/",
   },
   {
     title: "Brew Craft E-Commerce Platform",
